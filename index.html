@@ -1,79 +1,66 @@
-<!DOCTYPE html>
-<html>
+---
+layout: page
+title: API Discovery
+---
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Chicago-beer : This is my Chicago beer research...">
+<h1 class="title">API Discovery</h1>
+<p><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-discovery.png" width="200" align="right" style="padding: 15px;" /></p>
+<p>In the early days of the web API movement (2005-2010), to find APIs, you went to ProgrammableWeb, which was the only site on the web that was exclusively dedicated to APIs.  Discovery happened via the PW directory and constant stream of news and analysis from the space.</p>  
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+<p>ProgrammableWeb is still relevant in 2013, but as the number of APIs grows, the directory model is not meeting the demand for finding the best of breed APIs that developers are needing to build web and mobile apps.</p>
 
-    <title>Chicago-beer</title>
-  </head>
+<p>Among the API tech sector there is always discussion around the need for programatic discovery in API the API space.  Something that uses a WADL-like approach to describing APIs, so that the next generation of API directories, IDEs and other systems can discover, understand, monitor and integrate with APIs--with less human involvement.  In short, this vision hasn't been achieved.</p>
 
-  <body>
+<p>API discovery has two sides, finding the APIs you need and having your API be found.  As part of API Evangelist, I'd like help pay attention to both sides of this coin, and bring together the best news, analysis, tools and services for API Discovery.</p>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/kinlane/chicago-beer">View on GitHub</a>
+<hr />
+<!-- Begin List API Design companies--->
+{% raw  %}
+<script id="companyListingTemplate" type="text/template">       
+    <li style="list-style: none; padding: 30px; border: 0px solid #000;">
+        <a href="companies-detail.html?id={{id}}"><img src="{{logo}}" width="{{width}}" align="left" style="padding: 15px;" /></a>
+        <a href="companies-detail.html?id={{id}}" style="color: #000;"><strong>{{name}}</strong></a> - {{summary}}... <a href="companies-detail.html?id={{id}}">details</a>.
+    </li>                                                                                               
+</script>
+{% endraw %}
 
-          <h1 id="project_title">Chicago-beer</h1>
-          <h2 id="project_tagline">This is my Chicago beer research...</h2>
+<p><a id="jsonlink" href="data/companies.json" target="_blank"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-json-data-store.png" align="right" width="50" style="padding-top: 10px;" /></a></p>
+<h1 class="title">Companies</h1>
+<div style="padding-left: 10px; padding-right: 10px; width:550px;">
+     <ul id="companyListing" style="padding-left: 30px;"></ul>
+</div>  
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/kinlane/chicago-beer/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/kinlane/chicago-beer/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+<script type="text/javascript">
+function listCompanies()
+    {
+    $.getJSON('data/companies.json', function(data) {
+        toggle = 0;
+         $.each(data['company'], function(key, val) {
+            var template = $('#companyListingTemplate').html();
+            var html = Mustache.to_html(template, val);
+            $('#companyListing').append(html);                          
+            });
+        });
+    } 
+listCompanies();
+</script>
+<!-- End List API Design companies--->
+<hr />
+<!-- Begin List API Design companies--->
+{% raw  %}
+<script id="toolListingTemplate" type="text/template">       
+    <li style="list-style: none; padding: 30px; border: 0px solid #000;">
+        <a href="tools-detail.html?id={{id}}"><img src="{{logo}}" width="200" align="left" style="padding: 15px;" /></a>
+        <a href="tools-detail.html?id={{id}}" style="color: #000;"><strong>{{name}}</strong></a> - {{summary}}... <a href="tools-detail.html?id={{id}}">details</a>.
+    </li>                                                                                               
+</script>
+{% endraw %}
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Chicago-beer maintained by <a href="https://github.com/kinlane">kinlane</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
-</html>
+<br /><br />
+<!-- 3scale -->
+<p align="center">
+<a href="http://3scale.net" target="_blank" title="APIs From 3Scale">
+    <img src="https://s3.amazonaws.com/kinlane-productions/api-service-providers/3Scale/empowered-by-3scale.png" width="300" style="padding-bottom: 15px;" />
+</a>        
+</p>
+<!-- 3scale -->  
