@@ -1,31 +1,23 @@
 ---
 layout: page
-title: API Discovery
+title: Chicago Beer
 ---
 
-<h1 class="title">API Discovery</h1>
-<p><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-api-discovery.png" width="200" align="right" style="padding: 15px;" /></p>
-<p>In the early days of the web API movement (2005-2010), to find APIs, you went to ProgrammableWeb, which was the only site on the web that was exclusively dedicated to APIs.  Discovery happened via the PW directory and constant stream of news and analysis from the space.</p>  
+<p><a id="jsonlink" href="data/companies.json" target="_blank"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-json-data-store.png" align="right" width="50" style="padding-top: 10px;" /></a></p>
 
-<p>ProgrammableWeb is still relevant in 2013, but as the number of APIs grows, the directory model is not meeting the demand for finding the best of breed APIs that developers are needing to build web and mobile apps.</p>
+<h1 class="title">Chicago Beer</h1>
+<p><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-beer.png" width="200" align="right" style="padding: 15px;" /></p>
+<p>We needed to do research on local beers in Chicago, IL for the next edition of API Strategy & Practice, and we thought we'd share what we found with you.</p>  
 
-<p>Among the API tech sector there is always discussion around the need for programatic discovery in API the API space.  Something that uses a WADL-like approach to describing APIs, so that the next generation of API directories, IDEs and other systems can discover, understand, monitor and integrate with APIs--with less human involvement.  In short, this vision hasn't been achieved.</p>
-
-<p>API discovery has two sides, finding the APIs you need and having your API be found.  As part of API Evangelist, I'd like help pay attention to both sides of this coin, and bring together the best news, analysis, tools and services for API Discovery.</p>
-
-<hr />
-<!-- Begin List API Design companies--->
 {% raw  %}
 <script id="companyListingTemplate" type="text/template">       
     <li style="list-style: none; padding: 30px; border: 0px solid #000;">
-        <a href="companies-detail.html?id={{id}}"><img src="{{logo}}" width="{{width}}" align="left" style="padding: 15px;" /></a>
+        <a href="companies-detail.html?id={{id}}"><img src="{{logo}}" width="200" align="left" style="padding: 15px;" /></a>
         <a href="companies-detail.html?id={{id}}" style="color: #000;"><strong>{{name}}</strong></a> - {{summary}}... <a href="companies-detail.html?id={{id}}">details</a>.
     </li>                                                                                               
 </script>
 {% endraw %}
 
-<p><a id="jsonlink" href="data/companies.json" target="_blank"><img src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-json-data-store.png" align="right" width="50" style="padding-top: 10px;" /></a></p>
-<h1 class="title">Companies</h1>
 <div style="padding-left: 10px; padding-right: 10px; width:550px;">
      <ul id="companyListing" style="padding-left: 30px;"></ul>
 </div>  
@@ -44,17 +36,10 @@ function listCompanies()
     } 
 listCompanies();
 </script>
-<!-- End List API Design companies--->
-<hr />
-<!-- Begin List API Design companies--->
-{% raw  %}
-<script id="toolListingTemplate" type="text/template">       
-    <li style="list-style: none; padding: 30px; border: 0px solid #000;">
-        <a href="tools-detail.html?id={{id}}"><img src="{{logo}}" width="200" align="left" style="padding: 15px;" /></a>
-        <a href="tools-detail.html?id={{id}}" style="color: #000;"><strong>{{name}}</strong></a> - {{summary}}... <a href="tools-detail.html?id={{id}}">details</a>.
-    </li>                                                                                               
+
+<script type="text/javascript">
+listCompanies();
 </script>
-{% endraw %}
 
 <br /><br />
 <!-- 3scale -->
