@@ -51,19 +51,19 @@ function listCompanies()
             
             if(website.length>0){ document.getElementById("home-logo-link-"+id).href=website; }               
             if(website.length>0){ document.getElementById("home-name-link-"+id).href=website; }              
-            if(website.length>0){ document.getElementById("home-icon-"+id).href=website; } else { document.getElementById("home-icon-img").style.display='none'; }              
+            if(website.length>0){ document.getElementById("home-icon-"+id).href=website; } else { document.getElementById("home-icon-img"+id).style.display='none'; }              
                                     
             blog = val['blog'];
-            if(blog.length>0){ document.getElementById("blog-icon-"+id).href=blog; } else { document.getElementById("blog-icon-img").style.display='none'; }
+            if(blog.length>0){ document.getElementById("blog-icon-"+id).href=blog; } else { document.getElementById("blog-icon-img"+id).style.display='none'; }
                             
             blogrss = val['blogrss'];
-            if(blog.length>0){ document.getElementById("blogrss-icon-"+id).href=blogrss; } else { document.getElementById("blogrss-icon-img").style.display='none'; }
+            if(blog.length>0){ document.getElementById("blogrss-icon-"+id).href=blogrss; } else { document.getElementById("blogrss-icon-img"+id).style.display='none'; }
             
             twitter = val['twitter'];
-            if(twitter.length>0){ document.getElementById("twitter-icon-"+id).href=twitter; } else { document.getElementById("twitter-icon-img").style.display='none'; }
+            if(twitter.length>0){ document.getElementById("twitter-icon-"+id).href=twitter; } else { document.getElementById("twitter-icon-img"+id).style.display='none'; }
             
             github = val['github'];
-            if(github.length>0){ document.getElementById("github-icon-"+id).href=github; } else { document.getElementById("github-icon-img").style.display='none'; }
+            if(github.length>0){ document.getElementById("github-icon-"+id).href=github; } else { document.getElementById("github-icon-img"+id).style.display='none'; }
                         
                                  
             });
